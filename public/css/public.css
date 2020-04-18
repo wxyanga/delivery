@@ -1,0 +1,100 @@
+.home {
+	background: green;
+	padding-top: 6%;
+	height: 100vh;
+}
+.title {
+	color: #cab6b6;
+	text-align: center;
+}
+.box-card {
+	width: 50%;
+	margin: 0 auto;
+}
+.active {
+	color: green !important;
+}
+.titleButton {
+	margin-left: 10px;
+}
+.tips {
+	margin: 0 5px;
+}
+.cost {
+	width: 10px;
+	height: 10px;
+	display: inline-block;
+	border-radius: 50%;
+	margin-right: 10px;
+	background: green;
+}
+.cost-worrning {
+	background: red;
+}
+.cost-pink {
+	background: #0115ff;
+}
+.el-header {
+	background-color: #b3c0d1;
+	color: #333;
+	line-height: 60px;
+}
+
+.el-aside {
+	color: #333;
+	/* border-right: 1px solid #ccc; */
+}
+.el-menu {
+	border-right: 0;
+}
+.el-footer {
+	border-top: 1px solid #ccc;
+}
+.text-ellipsis {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	word-break: break-all;
+}
+.select-default {
+	color: green;
+	position: absolute;
+	right: 20px;
+}
+.select-set-default {
+	color: red;
+	position: absolute;
+	right: 10px;
+}
+.cust-exp-type .el-form-item__content {
+	width: 100%;
+}
+.el-header {
+	background: rgb(241, 241, 206);
+}
+.indexTopBox {
+	width: 100%;
+	text-align: center;
+}
+.indexMenu {
+	padding: 0 10%;
+}
+.indexBanner .el-carousel__container {
+	height: 600px;
+}
+.el-pagination {
+	margin-top: 10px;
+	text-align: right;
+}
+.tipsClass {
+	text-align: center;
+	background: #ccc;
+	padding: 20px;
+	margin-bottom: 20px;
+	word-break: keep-all;
+}
+.headerTop label,
+.headerTop div {
+	line-height: 60px;
+	font-size: 16px;
+}

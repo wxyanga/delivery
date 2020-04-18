@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <script src='/static/kbao/js/config.js'></script>
+    <!-- <script src='./js/config.js'></script> -->
+
+    <title>招财猫实物快递网</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <link rel="stylesheet" href="/static/kbao/css/public.css">
+    <!-- <link rel="stylesheet" href="./css/public.css"> -->
+    <script>
+        window.onload = function () {
+            document.getElementsByTagName('title')[0].innerHTML = systomConfig.name
+        }
+    </script>
+</body>
+
+</html>
