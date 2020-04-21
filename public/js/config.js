@@ -112,6 +112,11 @@ var menu = {
 					index: 'financeCheck',
 					icon: 'el-icon-message',
 					name: '充值审核'
+				},
+				{
+					index: 'deliverGoodsBatchResend',
+					icon: 'el-icon-message',
+					name: '补打单号'
 				}
 			]
 		},

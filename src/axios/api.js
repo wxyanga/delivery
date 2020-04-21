@@ -67,6 +67,7 @@ export default {
 	URL_PUT_ORDER_CHECK: getBaseUrl + '/kf/order/verify/', // 发货
 	URL_PUT_ORDER_REBACK_CHECK: getBaseUrl + '/kf/order/send/', // 发货失败后列表中发货
 	URL_PUT_ORDER_CHECK_RESEND: getBaseUrl + '/kf/order/resend/', // 重新发货
+	URL_PUT_ORDER_RESEND_DETAIL_EXPORT: getBaseUrl + '/kf/order/resendDetailExport/', // 重新发货详情导出
 
 	URL_PUT_RECHARGE_CHECK: getBaseUrl + '/kf/charge/verify/', // 充值审核
 	URL_GET_CHARGE_FINANCE_LIST: getBaseUrl + '/kf/charge/list/', // 财务的充值记录
