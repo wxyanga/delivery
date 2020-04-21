@@ -42,14 +42,14 @@
 					</el-table-column>
 				</el-table>
 				<el-table :data="FailResultTable" v-show="failResultShow">
-					<el-table-column prop="orderId" label="补打失败物流单号（请检查系统是否有此物流单号）" >
+					<el-table-column prop="orderId" :label="'补打失败物流单号(总计'+FailResultTable.length+'条)（请检查系统是否有此物流单号）'" >
 						<template slot-scope="prop">
 							<div style="color: rgba(175,1,0,0.79);" >{{prop.row.orderId}}</div>
 						</template>
 					</el-table-column>
 				</el-table>
 				<el-table :data="SuccessResultTable" v-show="successResultShow">
-					<el-table-column prop="orderId" label="补打成功物流单号"></el-table-column>
+					<el-table-column prop="orderId" :label="'补打成功物流单号(总计'+SuccessResultTable.length+'条)'"></el-table-column>
 				</el-table>
 			</el-tab-pane>
 		</el-tabs>
