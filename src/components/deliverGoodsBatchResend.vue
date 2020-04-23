@@ -30,17 +30,29 @@
 					</el-form-item>
 				</el-form>
 				<el-table :data="ExpTable">
-					<el-table-column prop="orderId" label="物流单号" width="150">
+					<el-table-column prop="orderId" label="物流单号" >
 						<template slot-scope="prop">
 							<el-input style="width: 200px;" v-model="prop.row.orderId"></el-input>
 						</template>
 					</el-table-column>
-					<el-table-column label="操作" width="100">
+                    <el-table-column prop="resendNum" label="补打次数" >
+                        <template slot-scope="prop">
+                            <div :style="prop.row.resendNum>0?'color:#ec5656;':'color:#01b79d;'" >{{prop.row.resendNum}}</div>
+                        </template>
+                    </el-table-column>
+					<el-table-column label="操作">
 						<template slot-scope="scope">
 							<el-button size="small" type="text" @click.native.prevent="deleteRow(scope.$index, ExpTable)">删除</el-button>
 						</template>
 					</el-table-column>
 				</el-table>
+                <el-table :data="FindFailResultTable" v-show="findFailResultShow">
+                    <el-table-column prop="orderId" :label="'系统物流单号未找到(总计'+FindFailResultTable.length+'条)'" >
+                        <template slot-scope="prop">
+                            <div style="color: rgba(175,1,0,0.79);" >{{prop.row.orderId}}</div>
+                        </template>
+                    </el-table-column>
+                </el-table>
 				<el-table :data="FailResultTable" v-show="failResultShow">
 					<el-table-column prop="orderId" :label="'补打失败物流单号(总计'+FailResultTable.length+'条)（请检查系统是否有此物流单号）'" >
 						<template slot-scope="prop">
@@ -100,7 +112,8 @@ export default {
 			tips: [],
 			ExpTable: [],
 			SuccessResultTable: [],
-			FailResultTable: []
+			FailResultTable: [],
+			FindFailResultTable: []
 		}
 	},
 
@@ -121,6 +134,13 @@ export default {
 			}else {
 				return false;
 			}
+		},
+		findFailResultShow:function() {
+			if(this.FindFailResultTable.length>0){
+				return true
+			}else {
+				return false;
+			}
 		}
 	},
 	methods: {
@@ -133,13 +153,31 @@ export default {
 					.split('\n')
 					.filter(i => i)
 			this.$log('alalysisArr', alalysisArr)
-			alalysisArr.forEach(item => {
 
+			alalysisArr.forEach(item => {
 				let orderId = item.trim()
-				this.ExpTable.push({
-					'orderId':orderId
+				// this.ExpTable.push({
+				// 	'orderId':orderId,
+				// 	'resendNum':0
+				// })
+				let params = {
+					orderId: orderId
+				}
+				this.$post(this.$API.URL_GET_ORDER_FINANCE, params, '').then(result => {
+					this.$log(0, result)
+					if(result.total>0){
+						this.ExpTable.push({
+                            'orderId':orderId,
+                            'resendNum':result.data[0]['resend_num']
+                        })
+					}else{
+						this.FindFailResultTable.push({
+							'orderId':orderId
+						})
+                    }
 				})
 			})
+			this.$log(0, this.FindFailResultTable)
 			this.textAreaValue = ''
 			this.SuccessResultTable = []
 			this.FailResultTable = []
@@ -149,6 +187,7 @@ export default {
 			this.ExpTable = []
 			this.SuccessResultTable = []
 			this.FailResultTable = []
+			this.FindFailResultTable = []
 		},
 
 		upEXP() {
