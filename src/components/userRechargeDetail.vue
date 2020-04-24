@@ -103,7 +103,7 @@ export default {
 				chargeType: this.form.chargeType,
 				chargeDate: this.form.chargeDate || ['', ''],
 				chargeMinAmt: this.form.chargeMinAmt == '' ? -1 : parseInt(this.form.chargeMinAmt), //mumber
-				chargeMaxAmt: this.form.chargeMinAmt == '' ? -1 : parseInt(this.form.chargeMinAmt) // number
+				chargeMaxAmt: this.form.chargeMaxAmt == '' ? -1 : parseInt(this.form.chargeMaxAmt) // number
 			}
 			this.$post(this.$API.URL_EXCEL_USER_FINANCE, params, '').then(result => {
 				this.$log(0, result)
