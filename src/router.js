@@ -36,6 +36,7 @@ export default new Router({
 
 				{ path: 'deliverGoods', name: 'deliverGoods', component: () => import('components/deliverGoods.vue') },
 				{ path: 'deliverGoodsDetail', name: 'deliverGoodsDetail', component: () => import('components/deliverGoodsDetail.vue') },
+				{ path: 'deliverGoodsBatchResend', name: 'deliverGoodsBatchResend', component: () => import('components/deliverGoodsBatchResend.vue') },
 
 				{ path: 'systomMoney', name: 'systomMoney', component: () => import('components/systomMoney.vue') },
 				{ path: 'systomExpressComp', name: 'systomExpressComp', component: () => import('components/systomExpressComp.vue') },
