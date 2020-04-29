@@ -26,7 +26,6 @@
 </template>
 
 <script>
-import mock from 'mock/mockData'
 export default {
 	name: 'cus-aside',
 	provider() {

@@ -1,5 +1,12 @@
 var isProduction = '/static/kbao/'
-// isProduction = '/'
+isProduction = '/'
+var showCollection = {
+	dialog: true,
+	url: 'http://www.taopingan.com',
+	netName: '招财猫实物快递网',
+	content: '大家收藏下我们快递的新网址，以后大家都用新网址。',
+	times: 1
+}
 var getBaseUrl = 'http://8.129.22.111:80'
 // 系统菜单 分管理员与用户
 // var menuAll = [
