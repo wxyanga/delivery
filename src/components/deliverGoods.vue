@@ -121,7 +121,11 @@
 				</template>
 			</el-table-column>
 
-			<el-table-column prop="amt" label="使用金额"></el-table-column>
+			<el-table-column prop="amt" label="使用金额">
+				<template slot-scope="prop">
+					{{ prop.row.order_id == ''?'0':prop.row.amt }}
+				</template>
+			</el-table-column>
 			<!-- <el-table-column prop="useComp" label="使用快递">
 				<template slot-scope="prop">
 					{{ useExpress.filter(item => item.id == prop.row.useComp)[0]['label'] }}
