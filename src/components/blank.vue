@@ -30,6 +30,7 @@ export default {
 	},
 	mounted() {
 		this.changeUrl = showCollection
+		this.$log(0, showCollection)
 		this.showDialog()
 	},
 	methods: {

@@ -51,6 +51,7 @@ export default {
 			this.$router.push('/home/')
 		},
 		quit() {
+			showCollection.times = 1
 			this.$post(this.$API.URL_QUIT_LOGIN, {}, '您已成功退出系统！').then(res => {
 				sessionStorage.removeItem('accessToken')
 				sessionStorage.removeItem('loginState')

@@ -1,5 +1,5 @@
 var isProduction = '/static/kbao/'
-isProduction = '/'
+// isProduction = '/'
 var showCollection = {
 	dialog: true,
 	url: 'http://www.taopingan.com',
