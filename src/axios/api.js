@@ -3,6 +3,7 @@ export default {
 	URL_LOGIN: getBaseUrl + '/portal/sign/in/', //登录
 	URL_REGISTER: getBaseUrl + '/portal/sign/up/', // 注册
 	URL_GET_CHECK: getBaseUrl + '/portal/fetch/img/', // 获取验证码
+	URL_SEND_MSG: getBaseUrl + '/portal/sendMsg/', // 获取验证码
 	URL_QUIT_LOGIN: getBaseUrl + '/portal/log/out/', // 退出登录
 
 	URL_UP_userRecharge: getBaseUrl + '/portal/charge/commit/', //充值提交

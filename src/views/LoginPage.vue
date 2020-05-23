@@ -69,6 +69,12 @@
 				<el-form-item label="验证码：" prop="vstr">
 					<el-input style="width: 60%;" v-model="formReg.vstr"></el-input>
 					<span class="tips">输入验证码</span>
+					<!--
+					<el-button icon="el-icon-mobile-phone" @click="send" style="width: 15%" type="success" :disabled="disabled=!show" >
+						<span v-show="show">获取验证码</span>
+						<span v-show="!show" class="count">{{count}} s</span>
+					</el-button>
+					-->
 				</el-form-item>
 				<el-form-item label="验证码：" v-if="timeStmp">
 					<img
@@ -169,7 +175,10 @@
 							trigger: ['blur', 'change']
 						}
 					]
-				}
+				},
+				show: true,  // 初始启用按钮
+				count: '',   // 初始化次数
+				timer: null,
 			}
 		},
 		created() {
@@ -231,6 +240,33 @@
 						return false
 					}
 				})
+			},
+			send(){
+				if(this.formReg.userid == ''){
+					this.$message.error('请输入手机号！')
+					return false
+				}
+				if (!this.timer) {
+					this.count = 60;
+					this.show = false;
+
+					this.$post(this.$API.URL_SEND_MSG, {'phone': this.formReg.userid}, '').then(
+							() => {
+								this.show = false;
+							}
+					).catch(()=>{
+						this.show = true;
+					})
+					this.timer = setInterval(() => {
+						if (this.count > 0 && this.count <= 60) {
+							this.count--;
+						} else {
+							this.show = true;
+							clearInterval(this.timer);  // 清除定时器
+							this.timer = null;
+						}
+					}, 1000)
+				}
 			}
 		}
 	}

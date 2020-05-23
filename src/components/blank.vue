@@ -2,12 +2,13 @@
 	<div>
 		<a v-if="msg.url" :href="msg.url" target="_blank" :style="msg.style">{{ msg.label }}</a>
 		<span v-else :href="msg.url" :style="msg.style">{{ msg.label }}</span>
-		<common-dialogs :right-click="dialogConfirm" :left-click="closedDialog" rightButtonText="点击收藏" leftButtonText="关闭" :closed-dialog="closedDialog" class="cust-Dialog-01">
+		<!--<common-dialogs :right-click="dialogConfirm" :left-click="closedDialog" rightButtonText="点击收藏" leftButtonText="关闭" :closed-dialog="closedDialog" class="cust-Dialog-01">-->
+		<common-dialogs :left-click="closedDialog" leftButtonText="关闭" :closed-dialog="closedDialog" class="cust-Dialog-01">
 			<template slot="Collection">
-				<p>
-					新网址地址：<a :href="changeUrl.url" target="_blank">{{ changeUrl.url }}</a>
-				</p>
-				<p>{{ changeUrl.content }}</p>
+				<!--<p>-->
+					<!--新网址地址：<a :href="changeUrl.url" target="_blank">{{ changeUrl.url }}</a>-->
+				<!--</p>-->
+				<p>充值二维码换了，大家键盘ctrl+F5强刷新，才会显示新的二维码，这个是浏览器无法实时刷新缓存的问题。</p>
 			</template>
 		</common-dialogs>
 	</div>
@@ -39,7 +40,7 @@ export default {
 				this.changeUrl.times > 0 &&
 				!this.changeUrl.url.includes(window.location.hostname) &&
 				this.changeUrl.times-- &&
-				this.$showDialog({ title: '快递新网址', slotName: 'Collection' })
+				this.$showDialog({ title: '提示', slotName: 'Collection' })
 		},
 		dialogConfirm() {
 			try {

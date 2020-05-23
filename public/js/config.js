@@ -418,6 +418,6 @@ var MainIndex = {
 }
 
 // 充值二维码
-var QRCode = isProduction + 'img/money1.png'
+var QRCode = isProduction + 'img/money3.png?1233'
 var QRCode1 = isProduction + 'img/4numbers.png'
 var openQQ = false
