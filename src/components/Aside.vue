@@ -49,6 +49,7 @@ export default {
 			this.$log('---needChange menu', this.userType)
 			// this.menuData = mock.menu[this.userType]
 			this.menuData = menu[this['userType']]
+			if (this.userType == 'custom') this.defaultOpeneds = ['express', 'charge', 'info']
 			// this.menuData = menu['admin']
 			// this.menuData = menuAll
 		},
