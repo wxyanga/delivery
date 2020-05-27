@@ -1,5 +1,5 @@
 var isProduction = '/static/kbao/'
-// isProduction = '/'
+isProduction = '/'
 var showCollection = {
 	dialog: true,
 	url: 'http://www.taopingan.com',
@@ -8,6 +8,10 @@ var showCollection = {
 	times: 1
 }
 var getBaseUrl = 'http://8.129.22.111:80'
+var mediaAudio = {
+	url: isProduction + 'media/chart.wav',
+	times: 1000 * 10
+}
 // 系统菜单 分管理员与用户
 // var menuAll = [
 // 	{
