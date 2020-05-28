@@ -25,7 +25,7 @@ import qq from 'components/qq.vue'
 import mixin from 'static/mixins.js'
 export default {
 	name: 'home',
-	mixins: [mixin.INFO],
+	mixins: [mixin.INFO, mixin.ADMIN],
 	components: { Aside, Header, qq },
 	data() {
 		return {}

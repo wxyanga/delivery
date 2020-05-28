@@ -1,4 +1,5 @@
 export default {
+	PROXY_CHARGE: getBaseUrl + '/kf/check/charge/', //充值轮询语音提示
 	// 登录注册接口
 	URL_LOGIN: getBaseUrl + '/portal/sign/in/', //登录
 	URL_REGISTER: getBaseUrl + '/portal/sign/up/', // 注册
